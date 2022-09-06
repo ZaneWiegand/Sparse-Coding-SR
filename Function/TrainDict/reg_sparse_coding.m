@@ -74,7 +74,6 @@ stat.elapsed_time=0;
 while t < pars.num_trials
 
     t=t+1;
-    start_time= cputime;
     stat.fobj_total=0;    
     % Take a random permutation of the samples
     indperm = randperm(size(X,2));
@@ -103,10 +102,8 @@ while t < pars.num_trials
     
     % get statistics
     stat.fobj_avg(t)      = stat.fobj_total / pars.num_patches;
-    stat.elapsed_time(t)  = cputime - start_time;
     
-    fprintf(['epoch= %d, sparsity = %f, fobj= %f, took %0.2f ' ...
-             'seconds\n'], t, mean(sparsity), stat.fobj_avg(t), stat.elapsed_time(t));
+    fprintf(['epoch= %d, sparsity = %f, fobj= %f, '], t, mean(sparsity), stat.fobj_avg(t));
     toc
     % save results
     %fprintf('saving results ...\n');
