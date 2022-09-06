@@ -21,7 +21,7 @@ dict_size   = 512;          % dictionary size
 lambda      = 0.15;         % sparsity regularization
 patch_size  = 5;            % image patch size
 nSmp        = 100000;       % number of patches to sample
-upscale     = 2;            % upscaling factor
+upscale     = 3;            % upscaling factor
 epoch       = 50;
 img         = '*.png';
 

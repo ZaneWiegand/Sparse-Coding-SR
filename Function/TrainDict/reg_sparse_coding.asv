@@ -72,7 +72,7 @@ stat.elapsed_time=0;
 % optimization loop
 
 while t < pars.num_trials
-
+    tic
     t=t+1;
     start_time= cputime;
     stat.fobj_total=0;    
@@ -81,7 +81,6 @@ while t < pars.num_trials
     
     sparsity = [];
     
-    tic
     for batch=1:(size(X,2)/pars.batch_size)
         
         

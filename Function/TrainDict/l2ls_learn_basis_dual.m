@@ -17,7 +17,6 @@ L = size(X,1);
 N = size(X,2);
 M = size(S, 1);
 
-tic
 SSt = S*S';
 XSt = X*S';
 
@@ -46,7 +45,6 @@ fobjective_dual = fval_opt;
 
 B= B_dual;
 fobjective = fobjective_dual;
-toc
 
 return;
 
