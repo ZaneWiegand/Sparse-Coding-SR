@@ -41,7 +41,7 @@ load(dic_path);
 
 % read test image
 im_lr = imread(lr_path);
-
+tic
 % change color space, work on illuminance only
 im_lr_ycbcr = rgb2ycbcr(im_lr);
 im_lr_y = im_lr_ycbcr(:, :, 1);
@@ -62,7 +62,7 @@ im_sr_ycbcr(:, :, 1) = im_sr_y;
 im_sr_ycbcr(:, :, 2) = im_sr_cb;
 im_sr_ycbcr(:, :, 3) = im_sr_cr;
 im_sr = ycbcr2rgb(uint8(im_sr_ycbcr));
-
+toc
 % bicubic interpolation for reference
 im_bc = imresize(im_lr, [nrow, ncol], 'bicubic');
 
