@@ -6,9 +6,9 @@ addpath(genpath('Function/CreateData'))
 addpath(genpath('Function/TrainDict'))
 
 % set file parameters
-lr_path = 'Test/input.bmp';
-hr_path = 'Test/gnd.bmp';
-sr_path = 'Test/result.bmp';
+lr_path = 'Test/2-input-2x.jpeg';
+hr_path = 'Test/2-GT.jpeg';
+sr_path = 'Test/2-result-2x.jpeg';
 
 % sparse sr parameters
 lambda = 0.2;                   % sparsity regularization
@@ -19,7 +19,7 @@ maxIter = 20;                   % if 0, do not use backprojection
 dic_size = 512;
 lmbd = 0.15;
 patch_size = 5;
-upscale = 4;
+upscale = 2;
 
 % New dictionary training parameters
 new_dict_size   = 512;          % dictionary size
@@ -44,7 +44,7 @@ im_lr_cb = im_lr_ycbcr(:, :, 2);
 im_lr_cr = im_lr_ycbcr(:, :, 3);
 
 % image super-resolution based on sparse representation
-[im_sr_y] = ScSR(im_lr_y, 2, Dh, Dl, lambda, overlap);
+[im_sr_y] = ScSR(im_lr_y, upscale, Dh, Dl, lambda, overlap);
 [im_sr_y] = backprojection(im_sr_y, im_lr_y, maxIter);
 
 
